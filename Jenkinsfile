@@ -10,9 +10,9 @@ pipeline {
    environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "ec2-54-167-81-5.compute-1.amazonaws.com:8081"
-        NEXUS_REPOSITORY = "geo"
-        NEXUS_CREDENTIAL_ID = "nexus-userID"
+        NEXUS_URL = "http://ec2-54-157-232-111.compute-1.amazonaws.com:8081"
+        NEXUS_REPOSITORY = "maven-nexus-repo"
+        NEXUS_CREDENTIAL_ID = "Jenkins-user"
     }
 
     stages {
@@ -20,7 +20,7 @@ pipeline {
         stage("build & SonarQube analysis") {          
             steps {
                     withSonarQubeEnv('sonar') {
-                        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=kserge2001_geo'
+                        sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Safiatu2222_nexus-real'
                     }
              
             }
